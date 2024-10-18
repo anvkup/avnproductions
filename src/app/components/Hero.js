@@ -4,7 +4,7 @@ function Hero() {
     return (
 
         <div>
-            <section class="bg-center bg-no-repeat bg-[url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-gray-700 bg-blend-multiply">
+            <section class=" bg-[url('/image/studiobg.webp')] bg-white bg-cover bg-blend-overlay">
                 <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
                     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Take your music to it&apos;s full potential</h1>
                     <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">At <strong>AVN Productions</strong>, we specialize in delivering high-quality <strong>music production</strong>, <strong>mixing</strong>, and <strong>recording services</strong> in <strong>Ranchi</strong>. Whether you&apos;re an artist looking to create a hit single, or a band needing to record an entire album, our team of professionals is here to bring your vision to life.</p>
