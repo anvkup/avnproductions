@@ -11,10 +11,7 @@ function about() {
             <section class="bg-white dark:bg-gray-900 py-16">
                 <div class="max-w-screen-xl mx-auto px-4">
                     <div class="max-w-3xl mx-auto text-center mb-12">
-                        <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">About AVN Productions</h1>
-                        <p class="text-gray-700 dark:text-gray-300">
-                            Welcome to AVN Productions, your gateway to a world of creative sound and soul-stirring music.
-                        </p>
+                        <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Welcome to AVN Productions, your gateway to a world of creative sound and soul-stirring music.</h1>
                     </div>
 
                     <div class="space-y-12">
