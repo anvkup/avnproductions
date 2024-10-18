@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -8,7 +9,7 @@ function Footer() {
                 <div class="md:flex md:justify-between">
                     <div class="mb-6 md:mb-0">
                         <a href="/" class="flex items-center">
-                            <img src="image/a.png" class="w-10" alt="Logo" />
+                            <Image src={"/image/a.png"} width={30} height={30} alt='Logo' />
                             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white p-2">AVN Productions</span>
                         </a>
                     </div>
