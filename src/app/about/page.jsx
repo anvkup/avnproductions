@@ -43,7 +43,7 @@ function about() {
                         <div class="text-center">
                             <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Our Mission 🔥</h2>
                             <p class="text-lg text-gray-600 dark:text-gray-300">
-                                Our mission is simple: <strong>to create music that inspires and connects people.</strong> We believe that music is a universal language, and through our work, we aim to bridge cultural gaps and bring people closer together. Whether you're listening to one of our original tracks or a reworked cover, we strive to evoke emotion and create lasting memories with our audience.
+                                Our mission is simple: <strong>to create music that inspires and connects people.</strong> We believe that music is a universal language, and through our work, we aim to bridge cultural gaps and bring people closer together. Whether you`&apos;`re listening to one of our original tracks or a reworked cover, we strive to evoke emotion and create lasting memories with our audience.
                             </p>
                         </div>
 
@@ -51,7 +51,7 @@ function about() {
                             <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Why Choose AVN Productions?</h2>
                             <ul class="list-disc list-inside text-lg text-gray-600 dark:text-gray-300 space-y-2">
                                 <li>
-                                    <strong>Passion-Driven:</strong> Music is more than just a profession to us—it's our passion. Every piece we create is crafted with heart and soul.
+                                    <strong>Passion-Driven:</strong> Music is more than just a profession to us—it`&apos;`s our passion. Every piece we create is crafted with heart and soul.
                                 </li>
                                 <li>
                                     <strong>Innovative Approach:</strong> We blend traditional and modern elements, exploring new ways to engage listeners and make our sound stand out.
@@ -70,9 +70,9 @@ function about() {
                         </div>
 
                         <div class="text-center">
-                            <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Let's Create Together 🎤</h2>
+                            <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Let`&apos;`s Create Together 🎤</h2>
                             <p class="text-lg text-gray-600 dark:text-gray-300">
-                                Whether you’re an artist looking for professional music production or a listener searching for something fresh and exciting, AVN Productions is here to deliver. Let’s collaborate and create something extraordinary that leaves a lasting impact on the world.
+                                Whether you`&apos;`re an artist looking for professional music production or a listener searching for something fresh and exciting, AVN Productions is here to deliver. Let`&apos;`s collaborate and create something extraordinary that leaves a lasting impact on the world.
                             </p>
                         </div>
                     </div>
