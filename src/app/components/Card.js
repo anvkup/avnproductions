@@ -37,7 +37,7 @@ function Card() {
                             </div>
                             <h3 className="mb-2 text-xl font-bold dark:text-white">Music Production Services</h3>
                             <p className="text-gray-500 dark:text-gray-400">
-                                Our full-suite production services include composition, recording, mixing, and mastering. Whether you're an artist, filmmaker, or brand, we deliver professional quality sound tailored to your needs.
+                                Our full-suite production services include composition, recording, mixing, and mastering. Whether you&apos;re an artist, filmmaker, or brand, we deliver professional quality sound tailored to your needs.
                             </p>
                         </div>
 
@@ -50,7 +50,7 @@ function Card() {
                             </div>
                             <h3 className="mb-2 text-xl font-bold dark:text-white">Collaboration & Partnerships</h3>
                             <p className="text-gray-500 dark:text-gray-400">
-                                We believe in the power of collaboration. Partner with us on exciting music projects and let’s make something extraordinary together. From independent artists to brands, we're always open to new ideas and creative synergy.
+                                We believe in the power of collaboration. Partner with us on exciting music projects and let&apos;s make something extraordinary together. From independent artists to brands, we're always open to new ideas and creative synergy.
                             </p>
                         </div>
                     </div>
