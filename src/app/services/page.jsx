@@ -45,10 +45,10 @@ function services() {
                                 className="w-full h-48 object-cover"
                             />
                             <div className="p-4">
-                                <h2 className="text-xl font-semibold">{service.title}</h2>
+                                <h2 className="text-xl font-semibold text-black">{service.title}</h2>
                                 <p className="mt-2 text-gray-600">{service.description}</p>
                                 <a
-                                    href="#"
+                                    href="tel:+91 90607 93927"
                                     className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                                 >
                                     Learn More
