@@ -50,7 +50,7 @@ function Card() {
                             </div>
                             <h3 className="mb-2 text-xl font-bold dark:text-white">Collaboration & Partnerships</h3>
                             <p className="text-gray-500 dark:text-gray-400">
-                                We believe in the power of collaboration. Partner with us on exciting music projects and let&apos;s make something extraordinary together. From independent artists to brands, we're always open to new ideas and creative synergy.
+                                We believe in the power of collaboration. Partner with us on exciting music projects and let&apos;s make something extraordinary together. From independent artists to brands, we&apos;re always open to new ideas and creative synergy.
                             </p>
                         </div>
                     </div>
