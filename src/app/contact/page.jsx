@@ -16,7 +16,7 @@ function contact() {
                 <div className="p-6 rounded-lg shadow-md">
                     <EnquiryForm/>
                 </div>
-                <div className="bg-gray-100 p-6 rounded-lg shadow-md mb-6 text-center">
+                <div className="bg-gray-800 p-6 rounded-lg shadow-md mb-6 text-center">
                     <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
                     <p>
                         <strong>Email:</strong> <a href="mailto:contact@avnmusic.site" className="text-blue-500">info@avnmusic.site</a>
