@@ -13,7 +13,7 @@ function Footer() {
                             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white p-2">AVN Music</span>
                         </a>
                         <h3>H-23, Adarsh Nagar, Dhurwa, Ranchi, Jharkhand 834004</h3>
-                        <a href="tel:+91 90607 93927">+91 90607 93927</a>
+                        <a href="tel:90607 93927">90607 93927</a>
                     </div>
                     <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>

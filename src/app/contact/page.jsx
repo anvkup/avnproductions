@@ -14,7 +14,7 @@ function contact() {
                     We’d love to hear from you! Whether you have questions, feedback, or inquiries about our services, please feel free to reach out.
                 </p>
                 <div className="p-6 rounded-lg shadow-md">
-                    <EnquiryForm/>
+                    <EnquiryForm />
                 </div>
                 <div className="bg-gray-800 p-6 rounded-lg shadow-md mb-6 text-center">
                     <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
@@ -22,7 +22,7 @@ function contact() {
                         <strong>Email:</strong> <a href="mailto:contact@avnmusic.site" className="text-blue-500">info@avnmusic.site</a>
                     </p>
                     <p>
-                        <strong>Phone:</strong> +91-90607 93927
+                        <strong>Phone:</strong>90607 93927
                     </p>
                     <p>
                         <strong>Address:</strong>
@@ -52,7 +52,7 @@ function contact() {
                     </ul>
                 </div>
 
-                
+
 
                 <div className="mt-6">
                     <h2 className="text-xl font-semibold mb-4">Frequently Asked Questions</h2>
