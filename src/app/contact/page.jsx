@@ -27,7 +27,7 @@ function contact() {
                     <p>
                         <strong>Address:</strong>
                         <br />
-                        AVN Music
+                        Adagio Music Studio
                         <br />
                         H-23, Adarsh Nagar, Dhurwa,
                         <br />
@@ -58,13 +58,13 @@ function contact() {
                     <h2 className="text-xl font-semibold mb-4">Frequently Asked Questions</h2>
                     <div className="space-y-2">
                         <p><strong>Q: What services do you offer?</strong><br />A: We provide music production, original compositions, covers, and audio engineering services tailored to your needs.</p>
-                        <p><strong>Q: Can I collaborate with AVN Music?</strong><br />A: Absolutely! We are always open to collaborations. Please reach out to us through the contact form or email.</p>
+                        <p><strong>Q: Can I collaborate with Adagio Music Studio?</strong><br />A: Absolutely! We are always open to collaborations. Please reach out to us through the contact form or email.</p>
                         <p><strong>Q: How can I book you for an event?</strong><br />A: You can inquire about bookings by contacting us via the form above or emailing us directly.</p>
                     </div>
                 </div>
 
                 <div className="text-center mt-6">
-                    <p>Thank you for your interest in AVN Music! We look forward to connecting with you.</p>
+                    <p>Thank you for your interest in Adagio Music Studio! We look forward to connecting with you.</p>
                 </div>
             </div>
             <Footer />

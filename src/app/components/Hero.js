@@ -7,7 +7,7 @@ function Hero() {
             <section class=" bg-[url('/image/studiobg.webp')] bg-white bg-cover bg-blend-multiply">
                 <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
                     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Take your music to it&apos;s full potential</h1>
-                    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">At <strong>AVN Music</strong>, we specialize in delivering high-quality <strong>music production</strong>, <strong>mixing</strong>, and <strong>recording services</strong> in <strong>Ranchi</strong>. Whether you&apos;re an artist looking to create a hit single, or a band needing to record an entire album, our team of professionals is here to bring your vision to life.</p>
+                    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">At <strong>Adagio Music Studio</strong>, we specialize in delivering high-quality <strong>music production</strong>, <strong>mixing</strong>, and <strong>recording services</strong> in <strong>Ranchi</strong>. Whether you&apos;re an artist looking to create a hit single, or a band needing to record an entire album, our team of professionals is here to bring your vision to life.</p>
                     <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
                         <a href="tel:90607 93927" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                             Call Us

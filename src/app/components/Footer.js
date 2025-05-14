@@ -10,7 +10,7 @@ function Footer() {
                     <div class="mb-6 md:mb-0">
                         <a href="/" class="flex items-center">
                             <Image src={"/image/a.png"} width={30} height={30} alt='Logo' />
-                            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white p-2">AVN Music</span>
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white p-2">Adagio Music Studio</span>
                         </a>
                         <h3>H-23, Adarsh Nagar, Dhurwa, Ranchi, Jharkhand 834004</h3>
                         <a href="tel:90607 93927">90607 93927</a>
@@ -62,7 +62,7 @@ function Footer() {
                 </div>
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">AVN Music</a>. All Rights Reserved.
+                    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">Adagio Music Studio</a>. All Rights Reserved.
                     </span>
                     <div class="flex mt-4 sm:justify-center sm:mt-0">
                         <a href="https://www.facebook.com/profile.php?id=61566925568567" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">

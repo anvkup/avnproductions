@@ -15,7 +15,7 @@ function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image src={"/image/a.png"}  width={30} height={30} alt='Logo'/>
-          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">AVN Music</span>
+          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Adagio Music Studio</span>
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
@@ -52,7 +52,7 @@ function Navbar() {
               <Link href="/" className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page">Home</Link>
             </li>
             <li>
-              <Link href="/about" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-label='Know More About AVN Music'>About</Link>
+              <Link href="/about" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-label='Know More About Adagio Music Studio'>About</Link>
             </li>
             <li>
               <Link href="/services" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-label='List of Deliverables Services'>Services</Link>

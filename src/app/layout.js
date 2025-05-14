@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "AVN Music",
-  description: "AVN Music is a professional music studio in Ranchi, Jharkhand, offering high-quality recording, music production for hip hop artists, singers, corporate ads, and background scoring. Elevate your sound with expert services for artists and brands.",
+  title: "Adagio Music Studio",
+  description: "Adagio Music Studio is a professional music studio in Ranchi, Jharkhand, offering high-quality recording, music production for hip hop artists, singers, corporate ads, and background scoring. Elevate your sound with expert services for artists and brands.",
 };
 
 export default function RootLayout({ children }) {
