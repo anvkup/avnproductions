@@ -29,7 +29,7 @@ function contact() {
                         <br />
                         Adagio Music Studio
                         <br />
-                        H-23, Adarsh Nagar, Dhurwa,
+                        AB/9, Adarsh Nagar, Dhurwa,
                         <br />
                         Ranchi, 834004
                         <br />
