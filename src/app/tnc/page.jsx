@@ -11,7 +11,7 @@ export default function TermsAndConditions() {
                 <h1 className="text-4xl font-bold mb-6">Terms and Conditions</h1>
 
                 <p className="mb-4">
-                    Welcome to Adagio Music Studio! These terms and conditions outline the rules and regulations for the use of our website, <a href="https://avnmusic.site" className="text-blue-500 hover:underline">avnmusic.site</a>.
+                    Welcome to AVN Music Studio! These terms and conditions outline the rules and regulations for the use of our website, <a href="https://avnmusic.site" className="text-blue-500 hover:underline">avnmusic.site</a>.
                 </p>
 
                 <h2 className="text-2xl font-semibold mb-3">1. Acceptance of Terms</h2>
@@ -26,17 +26,17 @@ export default function TermsAndConditions() {
 
                 <h2 className="text-2xl font-semibold mb-3">3. Intellectual Property</h2>
                 <p className="mb-4">
-                    All content, including text, graphics, logos, and images, available on this site is owned by or licensed to Adagio Music Studio. You are not permitted to copy, reproduce, or distribute any content from the site without prior written consent.
+                    All content, including text, graphics, logos, and images, available on this site is owned by or licensed to AVN Music Studio. You are not permitted to copy, reproduce, or distribute any content from the site without prior written consent.
                 </p>
 
                 <h2 className="text-2xl font-semibold mb-3">4. Limitation of Liability</h2>
                 <p className="mb-4">
-                    Adagio Music Studio will not be liable for any direct, indirect, or consequential loss or damage arising from the use of this website. This includes, but is not limited to, any loss of profits, business, or data.
+                    AVN Music Studio will not be liable for any direct, indirect, or consequential loss or damage arising from the use of this website. This includes, but is not limited to, any loss of profits, business, or data.
                 </p>
 
                 <h2 className="text-2xl font-semibold mb-3">5. Links to Third-Party Sites</h2>
                 <p className="mb-4">
-                    Our website may contain links to third-party websites. These links are provided for your convenience to provide further information. Adagio Music Studio has no control over these websites and is not responsible for their content.
+                    Our website may contain links to third-party websites. These links are provided for your convenience to provide further information. AVN Music Studio has no control over these websites and is not responsible for their content.
                 </p>
 
                 <h2 className="text-2xl font-semibold mb-3">6. User Conduct</h2>
@@ -56,7 +56,7 @@ export default function TermsAndConditions() {
 
                 <h2 className="text-2xl font-semibold mb-3">9. Changes to Terms</h2>
                 <p className="mb-4">
-                    Adagio Music Studio may revise these terms and conditions at any time. Any changes will be posted on this page, and it is your responsibility to review these terms regularly to ensure you are aware of any changes.
+                    AVN Music Studio may revise these terms and conditions at any time. Any changes will be posted on this page, and it is your responsibility to review these terms regularly to ensure you are aware of any changes.
                 </p>
 
                 <h2 className="text-2xl font-semibold mb-3">10. Contact Us</h2>

@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
                 <h1 className="text-4xl font-bold mb-6">Privacy Policy</h1>
 
                 <p className="mb-4">
-                    Welcome to Adagio Music Studio! This privacy policy explains how we collect, use, and share your personal information when you visit our website <a href="https://avnmusic.site" className="text-blue-500 hover:underline">avnmusic.site</a>.
+                    Welcome to AVN Music Studio! This privacy policy explains how we collect, use, and share your personal information when you visit our website <a href="https://avnmusic.site" className="text-blue-500 hover:underline">avnmusic.site</a>.
                 </p>
 
                 <h2 className="text-2xl font-semibold mb-3">1. Information We Collect</h2>
