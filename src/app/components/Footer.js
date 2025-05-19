@@ -12,7 +12,7 @@ function Footer() {
                             <Image src={"/image/a.png"} width={30} height={30} alt='Logo' />
                             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white p-2">AVN Music Studio</span>
                         </a>
-                        <h3>AB/9, Adarsh Nagar, Dhurwa, Ranchi, Jharkhand 834004</h3>
+                        <h3>AB/8, Adarsh Nagar, Dhurwa, Ranchi, Jharkhand 834004</h3>
                         <a href="tel:9060793927">9060793927</a>
                     </div>
                     <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

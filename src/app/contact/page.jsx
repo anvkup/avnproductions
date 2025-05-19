@@ -29,7 +29,7 @@ function contact() {
                         <br />
                         AVN Music Studio
                         <br />
-                        AB/9, Adarsh Nagar, Dhurwa,
+                        AB/8, Adarsh Nagar, Dhurwa,
                         <br />
                         Ranchi, 834004
                         <br />
