@@ -22,7 +22,7 @@ function contact() {
                         <strong>Email:</strong> <a href="mailto:contact@avnmusic.site" className="text-blue-500">info@avnmusic.site</a>
                     </p>
                     <p>
-                        <strong>Phone:</strong>90607 93927
+                        <strong>Phone:</strong> 93927
                     </p>
                     <p>
                         <strong>Address:</strong>
