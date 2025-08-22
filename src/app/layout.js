@@ -39,16 +39,14 @@ export default function RootLayout({ children }) {
     })(window,document,'script','dataLayer','GTM-M7PGTCHS');
         `}
         </Script>
-        {/* <-- Google tag (gtag.js) --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17202428540">
-        </script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'AW-17202428540');
-        </script>
+       <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17202428540');
+          `}
+        </Script>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-M7PGTCHS"
