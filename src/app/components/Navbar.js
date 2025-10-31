@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+// --- Imports ---
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,10 +13,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from 'lucide-react'; 
+import { Menu, Facebook, Instagram, Linkedin } from 'lucide-react'; // Added social icons
 
 // --- Navigation Links ---
-// We define our links in one place to keep our code DRY (Don't Repeat Yourself)
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -36,15 +37,15 @@ function Navbar() {
           <span className="self-center text-xl font-semibold whitespace-nowrap text-gray-900 dark:text-brand-white">AVN Music Studio</span>
         </Link>
 
-        {/* --- 1. DESKTOP NAV (WITH FADE ANIMATION) --- */}
+        {/* --- 1. DESKTOP NAV WRAPPER --- */}
         <div className="hidden md:flex items-center space-x-4">
+          
+          {/* Desktop Nav Links */}
           {navLinks.map((link) => (
             <Button 
               key={link.href} 
               variant="link" 
               asChild
-              // --- FIX APPLIED HERE ---
-              // Default opacity is 70%, hover makes it 100% with a 200ms transition
               className="opacity-70 hover:opacity-100 transition-opacity duration-200"
             >
               <Link href={link.href} className="text-gray-900 dark:text-brand-white text-sm font-medium">
@@ -52,13 +53,27 @@ function Navbar() {
               </Link>
             </Button>
           ))}
+
+          {/* 2. (NEW) SOCIAL ICONS (Shown on Desktop) */}
+          <div className="flex space-x-2 border-l border-gray-200 dark:border-brand-teal pl-4">
+            <Button variant="ghost" size="icon" asChild className="opacity-70 hover:opacity-100 transition-opacity duration-200">
+                <a href="https.www.facebook.com/profile.php?id=61566925568567" target="_blank" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
+            </Button>
+            <Button variant="ghost" size="icon" asChild className="opacity-70 hover:opacity-100 transition-opacity duration-200">
+                <a href="https.www.instagram.com/avn.music1/" target="_blank" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
+            </Button>
+            <Button variant="ghost" size="icon" asChild className="opacity-70 hover:opacity-100 transition-opacity duration-200">
+                <a href="https.www.linkedin.com/company/avn-productions1" target="_blank" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
+            </Button>
+          </div>
+          
           {/* Desktop "Call Us" Button */}
           <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-brand-white">
             <a href="tel:090607 93927">Call Us</a>
           </Button>
         </div>
 
-        {/* --- 2. MOBILE NAV (SIDE-DRAWER) --- */}
+        {/* --- MOBILE NAV (SIDE-DRAWER) --- */}
         <div className="flex md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -78,13 +93,20 @@ function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    // --- FIX APPLIED HERE (Mobile Links) ---
                     className="text-xl font-medium opacity-70 hover:opacity-100 transition-opacity duration-200 text-gray-900 dark:text-brand-white"
                     onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
                   >
                     {link.label}
                   </Link>
                 ))}
+                
+                {/* 3. (NEW) MOBILE SOCIAL ICONS (Placed below the links) */}
+                <div className="flex space-x-6 pt-4 border-t border-gray-200 dark:border-brand-teal">
+                    <a href="https.www.facebook.com/profile.php?id=61566925568567" target="_blank" aria-label="Facebook"><Facebook className="h-6 w-6 text-blue-500" /></a>
+                    <a href="https.www.instagram.com/avn.music1/" target="_blank" aria-label="Instagram"><Instagram className="h-6 w-6 text-blue-500" /></a>
+                    <a href="https.www.linkedin.com/company/avn-productions1" target="_blank" aria-label="LinkedIn"><Linkedin className="h-6 w-6 text-blue-500" /></a>
+                </div>
+
                 {/* Mobile "Call Us" Button */}
                 <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-brand-white mt-6">
                   <a href="tel:090607 93927">Call Us</a>

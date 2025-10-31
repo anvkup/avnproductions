@@ -1,28 +1,97 @@
 "use client"; 
 
 import React, { useState } from 'react';
-
-// 1. All extra imports (Popover, Command, etc.) are gone.
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
-// 2. We just import our new, clean component
+// --- NEW IMPORTS ---
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { CheckCircle, AlertTriangle } from 'lucide-react';
 import { PhoneNumberInput } from './PhoneNumberInput';
+
+// --- Formspree Endpoint ---
+const FORMSPREE_URL = "https://formspree.io/f/mzzkjnro"; // Use your actual Formspree URL
 
 function EnquiryForm() {
   
-  // 3. We only need one state for the phone number
-  const [phoneNumber, setPhoneNumber] = useState("+91"); // Default to India
+  // --- State for Phone Input ---
+  const [phoneNumber, setPhoneNumber] = useState("+91"); 
+  
+  // --- State for Form UI ---
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submissionError, setSubmissionError] = useState(false);
+
+  // --- 1. NEW: Form Data Handler ---
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form);
+    
+    // Reset status
+    setIsSubmitting(true);
+    setIsSubmitted(false);
+    setSubmissionError(false);
+
+    try {
+        const response = await fetch(FORMSPREE_URL, {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            setIsSubmitted(true);
+            form.reset(); // Clear the form fields
+            
+            // Auto-hide success message after 5 seconds
+            setTimeout(() => setIsSubmitted(false), 5000);
+            
+        } else {
+            // Handle HTTP errors or Formspree validation errors
+            setSubmissionError(true);
+            setTimeout(() => setSubmissionError(false), 5000);
+        }
+    } catch (error) {
+        console.error("Submission failed:", error);
+        setSubmissionError(true);
+        setTimeout(() => setSubmissionError(false), 5000);
+    } finally {
+        setIsSubmitting(false);
+    }
+  };
+
 
   return (
-    <form
-      action="https://formspree.io/f/YOUR_UNIQUE_ID_HERE" // <-- PASTE YOUR FORMSPREE URL
-      method="POST"
-      className="grid w-full gap-8"
-    >
+    // 2. We use the JavaScript handleSubmit function instead of the HTML action attribute
+    <form onSubmit={handleSubmit} className="grid w-full gap-8">
+      
+      {/* --- SUCCESS ALERT --- */}
+      {isSubmitted && (
+          <Alert className="border-green-500 bg-green-900/10 text-green-500 dark:border-green-600">
+              <CheckCircle className="h-4 w-4 text-green-500" />
+              <AlertTitle>Message Sent!</AlertTitle>
+              <AlertDescription>
+                  Your enquiry has been received successfully. We will contact you soon.
+              </AlertDescription>
+          </Alert>
+      )}
+
+      {/* --- ERROR ALERT --- */}
+      {submissionError && (
+          <Alert variant="destructive">
+              <AlertTriangle className="h-4 w-4" />
+              <AlertTitle>Submission Error</AlertTitle>
+              <AlertDescription>
+                  There was an issue sending your message. Please check your inputs or try again.
+              </AlertDescription>
+          </Alert>
+      )}
+
       {/* --- Name and Email --- */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="grid w-full items-center gap-1.5">
@@ -49,7 +118,6 @@ function EnquiryForm() {
       <div className="grid w-full items-center gap-1.5">
         <Label htmlFor="phone-number" className="text-gray-900 dark:text-brand-white">Phone Number *</Label>
         
-        {/* 4. We use our clean component here. All the extra code is gone. */}
         <PhoneNumberInput
           value={phoneNumber}
           onChange={setPhoneNumber}
@@ -104,8 +172,8 @@ function EnquiryForm() {
       </div>
 
       {/* --- Submit Button --- */}
-      <Button type="submit" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-brand-white">
-        Submit
+      <Button type="submit" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-brand-white" disabled={isSubmitting}>
+        {isSubmitting ? 'Submitting...' : 'Submit'}
       </Button>
     </form>
   );

@@ -2,28 +2,26 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-// Shadcn Components
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MoveRight, Star, Mic, Heart } from 'lucide-react'; 
+// --- Import Separator ---
+import { Separator } from "@/components/ui/separator";
 
 export default function About() {
-    // 1. (FIX) We no longer need the 'direction' state.
     const [activeTab, setActiveTab] = React.useState("services");
     
-    // 2. (FIX) We use a simple handler as directional logic is gone.
     const handleTabChange = (newValue) => {
-        setActiveTab(newValue);
+        const currentIndex = ['services', 'why'].indexOf(activeTab);
+        const newIndex = ['services', 'why'].indexOf(newValue);
+        
+        // Removed direction state logic since we reverted to simple fade
+        setActiveTab(newValue); 
     };
 
-    // 3. (FIX) Simple Fade Variants
     const fadeVariants = {
-        // Starts completely invisible
         initial: { opacity: 0 }, 
-        // Animates to fully visible
         animate: { opacity: 1 },   
-        // Exits completely invisible
         exit: { opacity: 0 },    
     };
 
@@ -31,7 +29,7 @@ export default function About() {
         <div className="min-h-screen">
             <div className="max-w-screen-xl mx-auto px-6 py-16">
                 
-                {/* --- Header Section --- */}
+                {/* Header Section */}
                 <header className="text-center mb-16">
                     <h1 className="text-4xl font-extrabold text-gray-900 dark:text-brand-white mb-4">
                         Welcome to AVN Music Studio
@@ -41,7 +39,6 @@ export default function About() {
                     </p>
                 </header>
 
-                {/* --- Main Grid Layout --- */}
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
                     
                     {/* === LEFT COLUMN: Story & Mission === */}
@@ -62,6 +59,9 @@ export default function About() {
                                 </p>
                             </CardContent>
                         </Card>
+
+                        {/* ADDED SEPARATOR HERE */}
+                        <Separator className="dark:bg-brand-teal" /> 
                         
                         <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
                             <CardHeader>
@@ -76,8 +76,18 @@ export default function About() {
                                 </p>
                             </CardContent>
                         </Card>
-                    </div>
 
+                        {/* ADDED SEPARATOR HERE */}
+                        <Separator className="dark:bg-brand-teal" /> 
+
+                        <div className="text-center mt-8">
+                            <h2 className="text-2xl font-semibold text-gray-900 dark:text-brand-white">Let&apos;s Create Together</h2>
+                            <p className="mt-2 text-lg text-gray-600 dark:text-gray-100">
+                                Whether you&apos;re an artist looking for professional music production or a listener searching for something fresh and exciting, AVN Music Studio is here to deliver.
+                            </p>
+                        </div>
+                    </div>
+                    
                     {/* === RIGHT COLUMN: Tabs with Simple Fade Animation === */}
                     <div className="lg:col-span-2">
                         <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
@@ -90,21 +100,11 @@ export default function About() {
                                 </TabsTrigger>
                             </TabsList>
 
-                            {/* AnimatePresence wraps the changing content */}
                             <AnimatePresence mode="wait" initial={false}>
                                 
-                                {/* Tab Content 1: Services */}
                                 {activeTab === "services" && (
                                     <TabsContent value="services" asChild>
-                                        <motion.div
-                                            key="services" 
-                                            variants={fadeVariants} // Use the simple fade variants
-                                            initial="initial"
-                                            animate="animate"
-                                            exit="exit"
-                                            transition={{ duration: 0.25 }} // Slightly slower transition for smoothness
-                                            className="mt-4"
-                                        >
+                                        <motion.div key="services" variants={fadeVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.25 }} className="mt-4">
                                             <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
                                                 <CardHeader>
                                                     <h3 className="text-xl font-semibold text-gray-900 dark:text-brand-white">Our Core Services</h3>
@@ -121,18 +121,9 @@ export default function About() {
                                     </TabsContent>
                                 )}
 
-                                {/* Tab Content 2: Why Choose Us */}
                                 {activeTab === "why" && (
                                     <TabsContent value="why" asChild>
-                                        <motion.div
-                                            key="why" 
-                                            variants={fadeVariants} // Use the simple fade variants
-                                            initial="initial"
-                                            animate="animate"
-                                            exit="exit"
-                                            transition={{ duration: 0.25 }}
-                                            className="mt-4"
-                                        >
+                                        <motion.div key="why" variants={fadeVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.25 }} className="mt-4">
                                             <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
                                                 <CardHeader>
                                                     <h3 className="text-xl font-semibold text-gray-900 dark:text-brand-white">Our Commitment to Quality</h3>
@@ -151,10 +142,6 @@ export default function About() {
                             </AnimatePresence>
                         </Tabs>
                     </div>
-                </div>
-
-                <div className="text-center mt-16 text-gray-600 dark:text-gray-100">
-                    <p>Whether you&apos;re an artist looking for professional music production or a listener searching for something fresh and exciting, AVN Music Studio is here to deliver.</p>
                 </div>
             </div>
         </div>
