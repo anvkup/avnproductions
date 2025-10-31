@@ -82,7 +82,7 @@ export default function Contact() {
                             </CardHeader>
                             <CardContent className="space-y-2 text-gray-600 dark:text-gray-100">
                                 <p>
-                                    <strong>Email:</strong> <a href="mailto:contact@avnmusic.site" className="text-blue-500">info@avnmusic.site</a>
+                                    <strong>Email:</strong> <a href="mailto:contact@avnmusic.shop" className="text-blue-500">info@avnmusic.shop</a>
                                 </p>
                                 <p><strong>Phone:</strong> 93927</p>
                                 <p>

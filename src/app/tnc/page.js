@@ -8,7 +8,7 @@ export default function TermsAndConditions() {
 
                 {/* --- ALL TEXT is now dark:text-gray-100 --- */}
                 <p className="mb-4 text-gray-600 dark:text-gray-100">
-                    Welcome to AVN Music Studio! These terms and conditions outline the rules and regulations for the use of our website, <a href="https://avnmusic.site" className="text-blue-500 hover:underline">avnmusic.site</a>.
+                    Welcome to AVN Music Studio! These terms and conditions outline the rules and regulations for the use of our website, <a href="https://avnmusic.shop" className="text-blue-500 hover:underline">avnmusic.shop</a>.
                 </p>
 
                 <h2 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-brand-white">1. Acceptance of Terms</h2>
@@ -25,7 +25,7 @@ export default function TermsAndConditions() {
 
                 <h2 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-brand-white">10. Contact Us</h2>
                 <p className="mb-4 text-gray-600 dark:text-gray-100">
-                    If you have any questions about these Terms and Conditions, please contact us at <a href="mailto:support@avnmusic.site" className="text-blue-500 hover:underline">support@avnmusic.site</a>.
+                    If you have any questions about these Terms and Conditions, please contact us at <a href="mailto:support@avnmusic.shop" className="text-blue-500 hover:underline">support@avnmusic.shop</a>.
                 </p>
             </div>
         </div>
