@@ -1,17 +1,22 @@
-import Image from "next/image";
+// src/app/page.js (Example Implementation)
 import Hero from "./components/Hero";
-// 1. (FIX) Updated the import from "./components/Card" to "./components/CardSection"
-import CardSection from "./components/CardSection"; 
+import CardSection from "./components/CardSection";
+import Script from 'next/script';
+import { localBusinessSchema } from './schema'; // Import the new file
 
 export default function Home() {
   return (
-    // This <main> tag is transparent.
-    // The Hero component has its own particle background.
-    // The CardSection component has its own solid background.
     <main>
+      <Script 
+        id="local-business-schema" 
+        type="application/ld+json" 
+        // Render the imported object as a JSON string
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
       <Hero />
-      {/* 2. (FIX) Updated the component tag to <CardSection /> */}
       <CardSection />
+      {/* ... rest of your homepage content ... */}
     </main>
   );
 }
