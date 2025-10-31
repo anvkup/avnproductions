@@ -1,70 +1,99 @@
-"use client"
+"use client"; 
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from 'lucide-react'; 
+
+// --- Navigation Links ---
+// We define our links in one place to keep our code DRY (Don't Repeat Yourself)
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    // Sticky position and z-index for frosted glass effect
+    <nav className="sticky top-0 w-full relative z-50 bg-white/80 dark:bg-brand-midnight/80 backdrop-blur-sm border-b border-gray-200 dark:border-brand-teal">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        
+        {/* --- LOGO --- */}
+        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image src={"/image/a.png"}  width={30} height={30} alt='Logo'/>
-          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">AVN Music Studio</span>
-        </a>
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button
-            onClick={toggleMenu}
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-cta"
-            aria-expanded={isMenuOpen}
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
+          <span className="self-center text-xl font-semibold whitespace-nowrap text-gray-900 dark:text-brand-white">AVN Music Studio</span>
+        </Link>
+
+        {/* --- 1. DESKTOP NAV (WITH FADE ANIMATION) --- */}
+        <div className="hidden md:flex items-center space-x-4">
+          {navLinks.map((link) => (
+            <Button 
+              key={link.href} 
+              variant="link" 
+              asChild
+              // --- FIX APPLIED HERE ---
+              // Default opacity is 70%, hover makes it 100% with a 200ms transition
+              className="opacity-70 hover:opacity-100 transition-opacity duration-200"
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
+              <Link href={link.href} className="text-gray-900 dark:text-brand-white text-sm font-medium">
+                {link.label}
+              </Link>
+            </Button>
+          ))}
+          {/* Desktop "Call Us" Button */}
+          <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700 text-brand-white">
+            <a href="tel:090607 93927">Call Us</a>
+          </Button>
         </div>
-        <div
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? 'block' : 'hidden'}`}
-          id="navbar-cta"
-        >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <Link href="/" className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page">Home</Link>
-            </li>
-            <li>
-              <Link href="/about" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-label='Know More About AVN Music Studio'>About</Link>
-            </li>
-            <li>
-              <Link href="/services" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-label='List of Deliverables Services'>Services</Link>
-            </li>
-            <li>
-              <Link href="/contact" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-label='Contact Us to Start a Project'>Contact</Link>
-            </li>
-            <li>
-              <Link href="tel:090607 93927" className="block md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-label='Contact Us to Start a Project'>090607 93927</Link>
-            </li>
-          </ul>
+
+        {/* --- 2. MOBILE NAV (SIDE-DRAWER) --- */}
+        <div className="flex md:hidden">
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Open main menu</span>
+              </Button>
+            </SheetTrigger>
+            
+            {/* The content of the side-drawer */}
+            <SheetContent side="right" className="bg-white dark:bg-brand-deep-space border-l dark:border-brand-teal">
+              <SheetHeader>
+                <SheetTitle className="text-gray-900 dark:text-brand-white">Navigation</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col space-y-6 pt-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    // --- FIX APPLIED HERE (Mobile Links) ---
+                    className="text-xl font-medium opacity-70 hover:opacity-100 transition-opacity duration-200 text-gray-900 dark:text-brand-white"
+                    onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                {/* Mobile "Call Us" Button */}
+                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-brand-white mt-6">
+                  <a href="tel:090607 93927">Call Us</a>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
+
       </div>
     </nav>
   );

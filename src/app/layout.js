@@ -1,45 +1,92 @@
-import localFont from "next/font/local";
+"use client"; 
+
+import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
-import Head from "next/head";
-import Script from "next/script"; // Importing the Script component
+import { AnimatePresence, motion } from "framer-motion";
+// --- THIS IS THE FIX ---
+// 1. Import usePathname from the correct library
+import { usePathname } from "next/navigation"; 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+
+// --- Components ---
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ParticleBackground from "./components/ParticleBackground";
+
+// --- Font Setup ---
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['400', '600', '700', '900'] 
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
-export const metadata = {
-  title: "AVN Music Studio - Recording Studio in Ranchi",
-  description: "AVN Music Studio is a professional music studio in Ranchi, Jharkhand driven by Music Producer Abhinav Bharadwj, offering high-quality recording, music production for hip hop artists, singers, corporate ads, and background scoring. Elevate your sound with expert services for artists and brands.",
-};
+// NOTE: Remember to manage your metadata in a separate file or within individual pages.
 
+// --- The Layout Component ---
 export default function RootLayout({ children }) {
+  // 2. The usePathname hook is now properly defined
+  const pathname = usePathname(); 
+
+  const fadeVariants = {
+    initial: { opacity: 0, y: 5 },  // Start slightly below center
+    animate: { opacity: 1, y: 0 },   // End at center
+    exit: { opacity: 0, y: -5 },     // Fade out slightly above
+  };
+
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} antialiased text-gray-900 dark:text-brand-white bg-white dark:bg-brand-deep-space relative`}
       >
-        {children}
+        <ParticleBackground />
+
+        <div className="relative z-10">
+          <Navbar />
+          
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.main
+              key={pathname} // KEY is essential: it tells AnimatePresence the content has changed
+              variants={fadeVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.25, type: "tween" }} 
+            >
+              {children}
+            </motion.main>
+          </AnimatePresence>
+
+          <Footer />
+        </div>
+
+        {/* --- Scripts (No Change) --- */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M7PGTCHS');
-        `}
+            (function(w,d,s,l,i){
+              w[l]=w[l]||[];
+              w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;
+              j.src='https://googletagmanager.com/gtm.js?id='+i+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-M7PGTCHS');
+          `}
         </Script>
-       <Script id="google-analytics" strategy="afterInteractive">
+        <noscript>
+          <iframe
+            src="https://googletagmanager.com/ns.html?id=GTM-M7PGTCHS"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+        <Script
+          src="httpsM://www.googletagmanager.com/gtag/js?id=AW-17202428540"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics-config" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -47,19 +94,8 @@ export default function RootLayout({ children }) {
             gtag('config', 'AW-17202428540');
           `}
         </Script>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-M7PGTCHS"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>
-
+        
       </body>
-      <head>
-        <meta name="google-site-verification" content="6OahjAwwsChOQROOfrq8ESlkcuzYi92k58NKLq9j3Zk" />
-      </head>
     </html>
   );
 }
