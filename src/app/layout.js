@@ -118,11 +118,11 @@ export default function RootLayout({ children }) {
               j.async=true;
               j.src='https://googletagmanager.com/gtm.js?id='+i+dl;
               f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-M7PGTCHS');
+            })(window,document,'script','dataLayer','GTM-KNCPMZZJ');
           `}
         </Script>
         <Script
-          src="httpsM://www.googletagmanager.com/gtag/js?id=AW-17202428540"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17202428540"
           strategy="afterInteractive"
         />
         <Script id="google-analytics-config" strategy="afterInteractive">
