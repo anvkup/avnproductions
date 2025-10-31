@@ -68,7 +68,7 @@ function Footer() {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-brand-teal lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-100">© 2024 <a href="https://avnmusic.shop/" className="hover:underline">AVN Music Studio</a>. All Rights Reserved.
+                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-100">© 2025 <a href="https://avnmusic.shop/" className="hover:underline">AVN Music Studio</a>. All Rights Reserved.
                     </span>
                     
                     {/* --- 2. (FIX) Replaced old SVGs with Shadcn Icon Buttons --- */}
