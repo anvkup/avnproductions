@@ -2,6 +2,9 @@
 
 import React from 'react'
 import EnquiryForm from '../components/EnquiryForm'
+// ADD THIS NEW DYNAMIC IMPORT:
+import dynamic from 'next/dynamic';
+
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import {
   Card,
