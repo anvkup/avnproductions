@@ -1,8 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Facebook, Instagram, Linkedin, Smartphone } from 'lucide-react';
+
+// --- NEW IMPORT ---
+import Logo from './Logo'; // Assuming Logo.js is in the same directory
 
 function Footer() {
     return (
@@ -12,16 +14,14 @@ function Footer() {
                     
                     {/* --- COLUMN 1: LOGO & CONTACT INFO --- */}
                     <div className="mb-6 md:mb-0">
-                        <Link href="/" className="flex items-center">
-                            <Image src={"/image/a.png"} width={30} height={30} alt='Logo' />
-                            <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-900 dark:text-brand-white p-2">AVN Music Studio</span>
-                        </Link>
+                        {/* 1. (FIX) Use the Logo component */}
+                        <Logo /> 
+                        
                         <p className="mt-2 text-gray-600 dark:text-gray-100">AB/8, Adarsh Nagar, Dhurwa, Ranchi, Jharkhand 834004</p>
                         <a href="tel:090607 93927" className="text-gray-600 dark:text-gray-100 hover:underline">090607 93927</a>
                     </div>
 
                     {/* --- COLUMN 2/3: LINKS --- */}
-                    {/* Note: This structure will collapse the grid appropriately now that one column is gone. */}
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         
                         {/* Navigate To column */}
@@ -59,17 +59,8 @@ function Footer() {
                             </ul>
                         </div>
                         
-                        {/* -------------------------------------------------- */}
-                        {/* --- LEGAL COLUMN (ENTIRELY COMMENTED OUT) --- */}
-                        {/* -------------------------------------------------- */}
-                        {/* <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-brand-white">Legal</h2>
-                            <ul className="text-gray-600 dark:text-gray-100 font-medium">
-                                <li className="mb-4"><Link href="/pnp" className="hover:underline">Privacy Policy</Link></li>
-                                <li><Link href="/tnc" className="hover:underline">Terms & Conditions</Link></li>
-                            </ul>
-                        </div>
-                        */}
+                        {/* --- LEGAL COLUMN (COMMENTED OUT) --- */}
+                        {/* The structure is maintained by leaving this commented block here */}
                     </div>
                 </div>
                 

@@ -1,0 +1,6 @@
+# .browserslistrc
+
+# Target modern browsers used by 99.5% of users (excludes IE and old Edge)
+# This allows Next.js to skip polyfills for ES6+ features.
+defaults
+not IE 11
