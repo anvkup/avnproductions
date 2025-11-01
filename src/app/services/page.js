@@ -1,77 +1,120 @@
+// src/app/services/page.js
+
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link for navigation
+import { MoveRight } from 'lucide-react';
 
-// Your service data
-const serviceCards = [
+// Shadcn Components
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+
+// --- Service Data (Used for the Directory Cards) ---
+const serviceDirectory = [
   {
-    title: 'Music Production',
-    description: 'From the initial idea to a fully produced track. We handle arrangement, instrumentation, and sound design to bring your musical vision to life.',
+    title: 'Full Music Production',
+    description: 'Full-scope arrangement, instrumentation, sound design, and engineering expertise to build your raw idea into a professional, finished track.',
     image: '/image/music-production.jpg',
+    href: '/services/production' 
   },
   {
     title: 'Mixing & Mastering',
-    description: 'Get a professional, polished, and radio-ready sound. We balance every element and master your track for clarity, punch, and loudness.',
+    description: 'The final, essential stage of production: balancing every element and mastering the track for clarity, punch, and commercial loudness.',
     image: '/image/audio-mixing.jpg',
+    href: '/services/mixing' 
   },
   {
     title: 'Recording & Dubbing',
-    description: 'Capture crystal-clear vocals and instruments in our acoustically treated booth. We also provide high-quality dubbing services for film and media.',
+    description: 'Capture vocals and instruments with pristine clarity. Dedicated services for music artists and film dialogue replacement (ADR).',
     image: '/image/songwriting.jpg', 
+    href: '/services/recording' 
   },
   {
     title: 'Commercial Audio & Jingles',
-    description: 'Need a catchy jingle for your brand or clean audio for your ad? We create memorable sound branding that makes your message stick.',
+    description: 'Custom sonic branding, voiceovers, and memorable jingle creation tailored for advertising and media campaigns in the local market.',
     image: '/image/ads.jpg',
+    href: '/services/jingles' 
   },
 ];
 
+export const metadata = {
+    title: "All Music Production Services | AVN Studio Ranchi",
+    description: "View all professional audio services offered by AVN Music Studio: Recording, Mixing, Mastering, Dubbing, and Commercial Jingle Production in Ranchi.",
+};
+
+
 export default function Services() {
     return (
-        <div className="min-h-screen">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="min-h-screen bg-white dark:bg-brand-deep-space py-12">
+            <div className="max-w-screen-xl mx-auto px-6 space-y-12">
                 
-                {serviceCards.map((service, index) => (
+                {/* --- HEADER: Service Overview --- */}
+                <header className="text-center mb-10">
+                    <h1 className="text-5xl font-extrabold text-gray-900 dark:text-brand-white mb-4">
+                        Explore Our Full Range of Services
+                    </h1>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        We offer specialized packages for every stage of audio production—from tracking vocals to final commercial mastering.
+                    </p>
+                </header>
+
+                {/* --- SERVICE DIRECTORY GRID --- */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     
-                    <div 
-                        key={index} 
-                        className="relative overflow-hidden min-h-[50vh] group"
-                    >
-                        {/* The Background Image */}
-                        <Image
-                            src={service.image}
-                            alt={service.title}
-                            fill
-                            className="z-0 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                        />
-
-                        {/* --- 1. (FIX) STRONGER GRADIENT --- */}
-                        {/* This is now a stronger 90% black gradient from the bottom, fading to 20% at the top */}
-                        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+                    {serviceDirectory.map((service, index) => (
                         
-                        <div className="relative z-20 flex h-full flex-col justify-center items-center text-center p-8 md:p-12">
-                            
-                            {/* --- 2. (FIX) ELEVATED TEXT --- */}
-                            {/* We made the title larger (text-4xl) and added a text-shadow */}
-                            <h2 
-                                className="text-4xl font-bold text-brand-white"
-                                // This is a Tailwind CSS text-shadow:
-                                style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)' }}
+                        <Link key={index} href={service.href}>
+                            <Card 
+                                // Make the card look clickable with cursor-pointer and shadow
+                                className="bg-white dark:bg-brand-midnight border-brand-teal h-full flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:dark:border-blue-500 cursor-pointer"
                             >
-                                {service.title}
-                            </h2>
-                            
-                            {/* --- 3. (FIX) ELEVATED DESCRIPTION --- */}
-                            {/* We made the description brighter (text-gray-100) and added a text-shadow */}
-                            <p 
-                                className="text-gray-100 mt-2 text-lg max-w-md"
-                                style={{ textShadow: '1px 1px 4px rgba(0, 0, 0, 0.8)' }}
-                            >
-                                {service.description}
-                            </p>
-                        </div>
-                    </div>
+                                <div className="relative overflow-hidden h-48">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-black/30" /> 
+                                </div>
 
-                ))}
+                                <CardHeader>
+                                    <CardTitle className="text-xl font-bold text-gray-900 dark:text-brand-white">
+                                        {service.title}
+                                    </CardTitle>
+                                </CardHeader>
+
+                                <CardContent className="text-gray-600 dark:text-gray-100 text-sm">
+                                    <p>{service.description}</p>
+                                </CardContent>
+
+                                {/* 2. FIX: Use Button just for visual styling, removing the redundant <a> wrapper */}
+                                <CardFooter>
+                                    <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-brand-white">
+                                        <span>
+                                            Learn More <MoveRight className="w-4 h-4 ml-2 inline-block" />
+                                        </span>
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </Link>
+                    ))}
+                </div>
+
+                {/* --- FINAL CTA --- */}
+                <footer className="text-center pt-8">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-brand-white">Ready to start your project?</h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                        Contact us directly for a custom quote in minutes.
+                    </p>
+                    <a 
+                        href="/contact" 
+                        className="inline-flex justify-center items-center py-3 px-6 text-lg font-semibold rounded-full bg-brand-teal hover:bg-brand-teal/80 text-brand-white transition-colors"
+                    >
+                        Get a Quick Quote
+                    </a>
+                </footer>
             </div>
         </div>
     );
