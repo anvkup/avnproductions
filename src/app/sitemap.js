@@ -1,44 +1,63 @@
 // src/app/sitemap.js
 
-// You use the `export default` format inside the App Router for static files like sitemaps
-
 export default async function sitemap() {
   const baseUrl = 'https://www.avnmusic.shop';
+  const currentDate = new Date().toISOString(); // Use current date for last modified time
 
   return [
-    // Homepage (Priority 1.0, highest)
+    // --- 1. CORE PAGES (Highest Priority: 1.0 - 0.9) ---
     {
       url: `${baseUrl}`,
-      lastModified: new Date(),
-      priority: 1.0,
+      lastModified: currentDate,
+      priority: 1.0, // Homepage: Highest priority
     },
-    // Services Page (Priority 0.9, high)
     {
       url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      priority: 0.9,
+      lastModified: currentDate,
+      priority: 0.9, // Service Hub: Very high priority
     },
-    // Contact Page (Priority 0.8)
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       priority: 0.8,
     },
-    // About Page (Priority 0.8)
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       priority: 0.8,
     },
-    // Legal Pages (Priority 0.5)
+    
+    // --- 2. DEDICATED SERVICE PAGES (Medium-High Priority: 0.7) ---
+    {
+      url: `${baseUrl}/services/production`,
+      lastModified: currentDate,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/mixing`,
+      lastModified: currentDate,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/recording`,
+      lastModified: currentDate,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/jingles`,
+      lastModified: currentDate,
+      priority: 0.7,
+    },
+
+    // --- 3. LEGAL PAGES (Lower Priority: 0.5) ---
     {
       url: `${baseUrl}/pnp`, // Privacy Policy
-      lastModified: new Date(),
+      lastModified: currentDate,
       priority: 0.5,
     },
     {
       url: `${baseUrl}/tnc`, // Terms and Conditions
-      lastModified: new Date(),
+      lastModified: currentDate,
       priority: 0.5,
     },
   ];
