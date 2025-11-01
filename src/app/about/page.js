@@ -1,13 +1,19 @@
+// src/app/about/page.js
+
 "use client" 
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// DELETED: import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; (no longer used)
 import { MoveRight, Star, Mic, Heart } from 'lucide-react'; 
 import { Separator } from "@/components/ui/separator";
 
+// DELETED: import { metadata as defaultMetadata } from "@/app/layout";
+// DELETED: export const metadata = { ... };
+
 export default function About() {
+    // State and handler for the former tabs component
     const [activeTab, setActiveTab] = React.useState("services");
     
     const handleTabChange = (newValue) => {
@@ -51,7 +57,7 @@ export default function About() {
                                 <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-lg">
                                     <strong>AVN Music Studio</strong> was founded on a simple belief: that every artist deserves a professional, budget-friendly space to realize their sound. Starting as a small, passion-driven project focused solely on **audio excellence**, we have grown into a full-suite production house. We thrive on taking raw concepts and shaping them into polished, commercially competitive tracks, serving the vibrant creative community in Ranchi and beyond.
                                 </p>
-                                <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-xl font-semibold">
+                                <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-xl font-semibold text-blue-400">
                                     Our mission is clear: to be the reliable technical and creative partner you need. We focus on transparent communication and technical mastery so you can concentrate entirely on your art.
                                 </p>
                             </CardContent>
@@ -68,7 +74,6 @@ export default function About() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                {/* --- FINAL CLEANUP HERE --- */}
                                 <p className="text-gray-600 dark:text-gray-100 text-lg">
                                     The studio is led by a dedicated <strong>music producer</strong> whose journey began over seven years ago with a single laptop and a powerful drive to create flawless sound. Our producer specializes in <strong>Hip Hop, Bollywood, and commercial audio</strong>, bringing a deep understanding of modern industry standards. This hands-on experience means every project benefits from a producer who not only understands the equipment but also the creative pressure and ambition behind each song.
                                 </p>

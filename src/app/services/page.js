@@ -38,11 +38,6 @@ const serviceDirectory = [
   },
 ];
 
-export const metadata = {
-    title: "All Music Production Services | AVN Studio Ranchi",
-    description: "View all professional audio services offered by AVN Music Studio: Recording, Mixing, Mastering, Dubbing, and Commercial Jingle Production in Ranchi.",
-};
-
 
 export default function Services() {
     return (

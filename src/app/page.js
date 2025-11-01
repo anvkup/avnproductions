@@ -8,6 +8,11 @@ import Script from 'next/script';
 // --- IMPORTANT: Ensure this file exists in src/app/schema.js ---
 import { localBusinessSchema } from './schema'; 
 
+export const metadata = {
+    title: "AVN Music Studio | Best Recording Studio in Ranchi",
+    description: "",
+};
+
 
 export default function Home() {
   return (

@@ -1,5 +1,10 @@
 import React from 'react';
 
+export const metadata = {
+    title: "AVN Music Studio | Best Recording Studio in Ranchi",
+    description: "",
+};
+
 export default function TermsAndConditions() {
     return (
         <div className="min-h-screen">
