@@ -1,80 +1,73 @@
-/* 1. ADD THESE THREE LINES BACK AT THE TOP */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* --- Imports for Phone Number and Flags (MUST be at the very top of the file) --- */
 @import "react-phone-number-input/style.css";
 @import "flag-icons/css/flag-icons.min.css";
 
-/* 2. THESE ARE THE NEW SHADCN VARIABLES. LEAVE THEM. */
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+/* ---------------------------------------------------------------------- */
+/* --- SHADCN/TAILWIND BASE STYLES (Your existing code here) --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
- 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
- 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
- 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
- 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+/* ... Your existing @layer base { :root { ... } } and .dark { ... } blocks ... */
+/* ---------------------------------------------------------------------- */
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
- 
-    --radius: 0.5rem;
-  }
- 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
- 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
- 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
- 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
- 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
- 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
- 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
- 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-  }
+
+/* --- PHONE NUMBER INPUT FINAL STYLES (Custom Overrides) --- */
+/* We use CSS variables defined in tailwind.config.js for perfect theme matching */
+.PhoneInputCustom {
+  display: flex;
 }
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+
+/* 2. Style the main input field */
+.PhoneInputCustom .PhoneInputInput {
+  /* CRITICAL: Force dark background and matching white text */
+  /* We use the color values defined in your custom palette */
+  background-color: var(--brand-deep-space) !important; 
+  color: var(--brand-white) !important;
+  
+  /* Inherit input styling from shadcn's border variable */
+  border-color: hsl(var(--input)) !important; 
+
+  /* Inherit the border radius from the wrapper */
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+  border-left: none !important;
+
+  /* Force placeholder text color to be readable in dark mode */
+  color: #f3f4f6 !important; /* Almost white */
+  height: 40px; 
+}
+
+/* 3. Style the Country Selector (Flag/Code) */
+.PhoneInputCustom .PhoneInputCountry {
+  /* Force dark background */
+  background-color: var(--brand-deep-space) !important;
+  color: var(--brand-white) !important;
+  border-color: hsl(var(--input)) !important;
+  
+  /* Apply dark mode borders and matching radius */
+  border: 1px solid hsl(var(--input));
+  border-right: none !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
+  
+  height: 40px;
+  display: flex; /* Centers flag and code */
+  align-items: center;
+}
+
+/* 4. Style the flag/code display text */
+.PhoneInputCustom .PhoneInputCountryText {
+  color: var(--brand-white) !important;
+}
+
+/* 5. Hide the default country selector dropdown arrow */
+.PhoneInputCountrySelectArrow {
+  display: none;
+}
+
+
+/* --- GOOGLE MAP FILTER (Added for context) --- */
+/* Forces the map colors to invert and match the blue theme */
+.dark .dark\:filter {
+  filter: invert(90%) hue-rotate(200deg) brightness(75%);
 }
