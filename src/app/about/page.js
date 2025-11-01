@@ -5,17 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MoveRight, Star, Mic, Heart } from 'lucide-react'; 
-// --- Import Separator ---
 import { Separator } from "@/components/ui/separator";
 
 export default function About() {
     const [activeTab, setActiveTab] = React.useState("services");
     
     const handleTabChange = (newValue) => {
-        const currentIndex = ['services', 'why'].indexOf(activeTab);
-        const newIndex = ['services', 'why'].indexOf(newValue);
-        
-        // Removed direction state logic since we reverted to simple fade
         setActiveTab(newValue); 
     };
 
@@ -41,8 +36,10 @@ export default function About() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
                     
-                    {/* === LEFT COLUMN: Story & Mission === */}
+                    {/* === LEFT COLUMN: Story & Mission & Artist === */}
                     <div className="lg:col-span-3 space-y-8">
+                        
+                        {/* 1. OUR STORY & MISSION */}
                         <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
                             <CardHeader>
                                 <CardTitle className="text-3xl font-bold text-gray-900 dark:text-brand-white flex items-center">
@@ -52,17 +49,17 @@ export default function About() {
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-lg">
-                                    Founded with the vision of bringing fresh and unique sounds to the world...
+                                    <strong>AVN Music Studio</strong> was founded on a simple belief: that every artist deserves a professional, budget-friendly space to realize their sound. Starting as a small, passion-driven project focused solely on **audio excellence**, we have grown into a full-suite production house. We thrive on taking raw concepts and shaping them into polished, commercially competitive tracks, serving the vibrant creative community in Ranchi and beyond.
                                 </p>
                                 <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-xl font-semibold text-blue-400">
-                                    Our mission is simple: to create music that inspires and connects people.
+                                    Our mission is clear: to be the reliable technical and creative partner you need. We focus on transparent communication and technical mastery so you can concentrate entirely on your art.
                                 </p>
                             </CardContent>
                         </Card>
 
-                        {/* ADDED SEPARATOR HERE */}
                         <Separator className="dark:bg-brand-teal" /> 
                         
+                        {/* 2. MEET THE ARTIST */}
                         <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
                             <CardHeader>
                                 <CardTitle className="text-2xl font-semibold text-gray-900 dark:text-brand-white flex items-center">
@@ -71,13 +68,13 @@ export default function About() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
+                                {/* --- FINAL CLEANUP HERE --- */}
                                 <p className="text-gray-600 dark:text-gray-100 text-lg">
-                                    Behind the scenes of AVN Music Studio is a talented music producer...
+                                    The studio is led by a dedicated <strong>music producer</strong> whose journey began over seven years ago with a single laptop and a powerful drive to create flawless sound. Our producer specializes in <strong>Hip Hop, Bollywood, and commercial audio</strong>, bringing a deep understanding of modern industry standards. This hands-on experience means every project benefits from a producer who not only understands the equipment but also the creative pressure and ambition behind each song.
                                 </p>
                             </CardContent>
                         </Card>
 
-                        {/* ADDED SEPARATOR HERE */}
                         <Separator className="dark:bg-brand-teal" /> 
 
                         <div className="text-center mt-8">
@@ -88,60 +85,48 @@ export default function About() {
                         </div>
                     </div>
                     
-                    {/* === RIGHT COLUMN: Tabs with Simple Fade Animation === */}
-                    <div className="lg:col-span-2">
-                        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-                            <TabsList className="grid w-full grid-cols-2 dark:bg-brand-midnight border dark:border-brand-teal">
-                                <TabsTrigger value="services" className="flex items-center text-gray-900 dark:text-gray-300">
-                                    <Star className="w-4 h-4 mr-2" /> What We Offer
-                                </TabsTrigger>
-                                <TabsTrigger value="why" className="flex items-center text-gray-900 dark:text-gray-300">
-                                    <Heart className="w-4 h-4 mr-2" /> Why Choose Us
-                                </TabsTrigger>
-                            </TabsList>
-
-                            <AnimatePresence mode="wait" initial={false}>
-                                
-                                {activeTab === "services" && (
-                                    <TabsContent value="services" asChild>
-                                        <motion.div key="services" variants={fadeVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.25 }} className="mt-4">
-                                            <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
-                                                <CardHeader>
-                                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-brand-white">Our Core Services</h3>
-                                                </CardHeader>
-                                                <CardContent>
-                                                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 space-y-3 pl-4">
-                                                        <li><h4 className="text-lg font-semibold text-blue-400">Original Compositions</h4><p className="text-sm">Creating fresh, original music...</p></li>
-                                                        <li><h4 className="text-lg font-semibold text-blue-400">Cover Songs</h4><p className="text-sm">Reimagining popular tracks...</p></li>
-                                                        <li><h4 className="text-lg font-semibold text-blue-400">Music Production</h4><p className="text-sm">Professional-grade production...</p></li>
-                                                    </ul>
-                                                </CardContent>
-                                            </Card>
-                                        </motion.div>
-                                    </TabsContent>
-                                )}
-
-                                {activeTab === "why" && (
-                                    <TabsContent value="why" asChild>
-                                        <motion.div key="why" variants={fadeVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.25 }} className="mt-4">
-                                            <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
-                                                <CardHeader>
-                                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-brand-white">Our Commitment to Quality</h3>
-                                                </CardHeader>
-                                                <CardContent>
-                                                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 space-y-3 pl-4">
-                                                        <li><h4 className="text-lg font-semibold text-blue-400">Passion-Driven</h4><p className="text-sm">Music is our passion...</p></li>
-                                                        <li><h4 className="text-lg font-semibold text-blue-400">Innovative Approach</h4><p className="text-sm">We blend traditional and modern elements...</p></li>
-                                                        <li><h4 className="text-lg font-semibold text-blue-400">High-Quality Sound</h4><p className="text-sm">Our production quality is top-notch...</p></li>
-                                                    </ul>
-                                                </CardContent>
-                                            </Card>
-                                        </motion.div>
-                                    </TabsContent>
-                                )}
-                            </AnimatePresence>
-                        </Tabs>
+                    {/* === RIGHT COLUMN: STACKED CARDS (What We Offer / Why Choose Us) === */}
+                    <div className="lg:col-span-2 space-y-8">
+                        
+                        {/* CARD 1: What We Offer */}
+                        <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
+                            <CardHeader>
+                                <CardTitle className="text-2xl font-semibold text-gray-900 dark:text-brand-white flex items-center">
+                                    <Star className="w-5 h-5 mr-2 text-blue-500" />
+                                    What We Offer
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 space-y-3 pl-4">
+                                    <li><h4 className="text-lg font-semibold text-blue-400 dark:text-blue-400">Original Compositions</h4><p className="text-sm text-gray-600 dark:text-gray-100">Creating fresh, original music...</p></li>
+                                    <li><h4 className="text-lg font-semibold text-blue-400 dark:text-blue-400">Cover Songs</h4><p className="text-sm text-gray-600 dark:text-gray-100">Reimagining popular tracks...</p></li>
+                                    <li><h4 className="text-lg font-semibold text-blue-400 dark:text-blue-400">Music Production</h4><p className="text-sm text-gray-600 dark:text-gray-100">Professional-grade production...</p></li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                        
+                        {/* CARD 2: Why Choose Us */}
+                        <Card className="bg-white dark:bg-brand-midnight border-brand-teal p-0">
+                            <CardHeader>
+                                <CardTitle className="text-2xl font-semibold text-gray-900 dark:text-brand-white flex items-center">
+                                    <Heart className="w-5 h-5 mr-2 text-blue-500" />
+                                    Why Choose Us
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ul className="list-disc list-inside text-gray-600 dark:text-gray-100 space-y-3 pl-4">
+                                    <li><h4 className="text-lg font-semibold text-blue-400 dark:text-blue-400">Passion-Driven</h4><p className="text-sm">Music is our passion...</p></li>
+                                    <li><h4 className="text-lg font-semibold text-blue-400 dark:text-blue-400">Innovative Approach</h4><p className="text-sm">We blend traditional and modern elements...</p></li>
+                                    <li><h4 className="text-lg font-semibold text-blue-400 dark:text-blue-400">High-Quality Sound</h4><p className="text-sm">Our production quality is top-notch...</p></li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                        
                     </div>
+                </div>
+
+                <div className="text-center mt-16 text-gray-600 dark:text-gray-100">
+                    <p>Whether you&apos;re an artist looking for professional music production or a listener searching for something fresh and exciting, AVN Music Studio is here to deliver.</p>
                 </div>
             </div>
         </div>
