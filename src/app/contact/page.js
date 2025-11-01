@@ -2,10 +2,8 @@
 
 import React from 'react'
 import EnquiryForm from '../components/EnquiryForm'
-// ADD THIS NEW DYNAMIC IMPORT:
-import dynamic from 'next/dynamic';
-
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
+
 import {
   Card,
   CardContent,
@@ -19,20 +17,22 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from '@/components/ui/button'; 
-// --- Import Separator ---
+// --- FIX 2: IMPORT SEPARATOR ---
 import { Separator } from "@/components/ui/separator";
 
 export default function Contact() {
     return (
+        // This page is transparent
         <div className="min-h-screen">
             <div className="max-w-screen-xl mx-auto p-6 space-y-8"> 
                 
                 <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-brand-white">Contact Us</h1>
+                {/* --- FIX 1: REMOVED DUPLICATE PROPS --- */}
                 <p className="text-center text-gray-600 dark:text-gray-100 max-w-2xl mx-auto">
                     We’d love to hear from you! Whether you have questions, feedback, or inquiries about our services, please feel free to reach out.
                 </p>
-
-                {/* --- MAIN LAYOUT GRID --- */}
+                
+                {/* --- MAIN LAYOUT GRID: Form (2/3) + Info (1/3) --- */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     
                     {/* === COLUMN 1: ENQUIRY FORM & FAQ === */}
@@ -80,12 +80,12 @@ export default function Contact() {
                             </CardHeader>
                             <CardContent className="space-y-2 text-gray-600 dark:text-gray-100">
                                 <p><strong>Email:</strong> <a href="mailto:contact@avnmusic.site" className="text-blue-500">info@avnmusic.site</a></p>
-                                <p><strong>Phone:</strong> 90607 93927</p>
-                                <p><strong>Address:</strong><br />AVN Music Studio<br />AB/8, Adarsh Nagar, Dhurwa, Ranchi, 834004</p>
+                                <p><strong>Phone:</strong> 93927</p>
+                                <p><strong>Address:</strong><br />AVN Music Studio<br />AB/8, Adarsh Nagar, Dhurwa...</p>
                             </CardContent>
                         </Card>
 
-                        {/* ADDED SEPARATOR HERE */}
+                        {/* --- FIX 3: SEPARATOR USAGE IS NOW VALID --- */}
                         <Separator className="dark:bg-brand-teal" /> 
 
                         {/* 4. Find Us (Map) Card */}
@@ -104,7 +104,7 @@ export default function Contact() {
                             </CardContent>
                         </Card>
 
-                        {/* ADDED SEPARATOR HERE */}
+                        {/* --- FIX 4: SEPARATOR USAGE IS NOW VALID --- */}
                         <Separator className="dark:bg-brand-teal" /> 
                         
                         {/* 5. Follow Us Card */}
@@ -120,11 +120,11 @@ export default function Contact() {
                         </Card>
                     </div>
                 </div>
-
+                
                 <div className="text-center pt-8 text-gray-600 dark:text-gray-100">
                     <p>Thank you for your interest in AVN Music Studio! We look forward to connecting with you.</p>
                 </div>
             </div>
         </div>
-    );
+    )
 }

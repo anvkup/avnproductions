@@ -57,7 +57,7 @@ export default function About() {
                                 <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-lg">
                                     <strong>AVN Music Studio</strong> was founded on a simple belief: that every artist deserves a professional, budget-friendly space to realize their sound. Starting as a small, passion-driven project focused solely on **audio excellence**, we have grown into a full-suite production house. We thrive on taking raw concepts and shaping them into polished, commercially competitive tracks, serving the vibrant creative community in Ranchi and beyond.
                                 </p>
-                                <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-xl font-semibold text-blue-400">
+                                <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-xl font-semibold">
                                     Our mission is clear: to be the reliable technical and creative partner you need. We focus on transparent communication and technical mastery so you can concentrate entirely on your art.
                                 </p>
                             </CardContent>

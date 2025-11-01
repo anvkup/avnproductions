@@ -37,7 +37,7 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 w-full relative z-50 bg-white/80 dark:bg-brand-midnight/80 backdrop-blur-sm border-b border-gray-200 dark:border-brand-teal">
+    <nav className="sticky top-0 w-full z-50 bg-white/80 dark:bg-brand-midnight/80 backdrop-blur-sm border-b border-gray-200 dark:border-brand-teal">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         
         {/* --- LOGO --- */}
