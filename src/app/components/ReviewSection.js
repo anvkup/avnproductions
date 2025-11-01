@@ -1,39 +1,45 @@
-// src/app/components/ReviewSection.js
-
 "use client"; 
 
 import React from 'react';
 import { Star, MessageSquare } from 'lucide-react';
 
-// --- 1. (FIX) CORRECT IMPORT PATH FOR JSON DATA ---
-// We assume you have the JSON file named reviewData.json in src/lib/
-import { staticReviews } from "@/lib/reviewData";// Shadcn Components
+// Shadcn Components
 import { 
     Card, 
     CardContent, 
     CardHeader, 
-    CardTitle,
     CardFooter 
 } from "@/components/ui/card";
-// --- 2. (FIX) Import all necessary Carousel components ---
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"; 
 import { Button } from "@/components/ui/button";
+
+// --- Import data from the clean file ---
+import { staticReviews } from "@/lib/reviewData"; 
 
 // --- Custom Star Rating Component (No Change) ---
 const RatingStars = ({ rating }) => {
-// ...
+    const fullStars = Math.round(rating);
+    return (
+        <div className="flex items-center space-x-0.5">
+            {[...Array(5)].map((_, i) => (
+                <Star
+                    key={i}
+                    className={`h-4 w-4 fill-yellow-500 ${i < fullStars ? 'text-yellow-500' : 'text-gray-600'}`}
+                />
+            ))}
+            <span className="ml-1 text-sm font-semibold text-gray-300 dark:text-gray-400">
+                ({rating.toFixed(1)})
+            </span>
+        </div>
+    );
 };
 
 
 export default function ReviewSection() {
-    // Check if data is an array before attempting reduce
-    const dataToUse = Array.isArray(staticReviews) ? staticReviews : [];
-
-    // Calculate total rating (using dataToUse)
-    const totalRating = dataToUse.length > 0 
-        ? dataToUse.reduce((sum, review) => sum + review.rating, 0) / dataToUse.length
-        : 0;
-    const totalReviews = dataToUse.length;
+    
+    // Calculate total rating
+    const totalRating = staticReviews.reduce((sum, review) => sum + review.rating, 0) / staticReviews.length;
+    const totalReviews = staticReviews.length;
 
     return (
         <section className="py-16 bg-white dark:bg-brand-deep-space">
@@ -45,15 +51,14 @@ export default function ReviewSection() {
                         Client Testimonials
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300">
-                        Rated {totalRating.toFixed(1)} out of 5 stars based on {totalReviews} Reviews.
+                        Rated {totalRating.toFixed(1)} out of 5 stars based on {totalReviews} Reviews and 26 Ratings.
                     </p>
                 </header>
 
-                {/* --- CAROUSEL --- */}
+                {/* --- CAROUSEL: Now the main container for both slides AND arrows --- */}
                 <Carousel className="w-full">
                     <CarouselContent>
-                        {/* 3. Map over the now correctly imported data */}
-                        {dataToUse.map((review, index) => (
+                        {staticReviews.map((review, index) => (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                                 <Card className="bg-white dark:bg-brand-midnight border-brand-teal h-full flex flex-col justify-between">
                                     <CardHeader>
@@ -75,11 +80,20 @@ export default function ReviewSection() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    {/* Carousel navigation controls (these should work now) */}
-                    <CarouselPrevious className="dark:border-brand-teal dark:text-brand-white" />
-                    <CarouselNext className="dark:border-brand-teal dark:text-brand-white" />
+                    
+                    {/* 1. FIXED: Arrows are INSIDE the Carousel context, but styled to appear below. */}
+                    {/* 2. They now have class 'static' so they flow below the content instead of floating over it. */}
+                    <div className="flex justify-center space-x-4 pt-6">
+                        <CarouselPrevious 
+                            className="relative static dark:border-brand-teal dark:text-brand-white" 
+                        />
+                        <CarouselNext 
+                            className="relative static dark:border-brand-teal dark:text-brand-white" 
+                        />
+                    </div>
                 </Carousel>
                 
+                {/* 3. The View All link is placed correctly below the carousel */}
                 <div className="text-center mt-8">
                     <Button asChild variant="link" className="text-blue-500 hover:underline">
                         <a href="https://search.google.com/local/writereview?placeid=ChIJ-_K5RmEh9TkRmsOnefwPe5I" target="_blank" rel="noopener noreferrer">
